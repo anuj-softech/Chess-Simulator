@@ -30,7 +30,7 @@ function populateBoard() {
 function populateRow(row, row_id, color) {
     let i = 0;
     boardData[getRow(row_id)].forEach((place) => {
-        place.data = {p:row[i],color:color};
+        place.data = {p:row[i],color:color,id:color+row[i]+(Math.floor((i+1)/5))};
         i++;
     });
 }
@@ -53,7 +53,6 @@ function getRow(id){
 function updateBoard() {
     try{
         let k = 0;
-        console.log('aa');
         boardData.forEach((row) => {
             const board = document.getElementById('board');
             for (let i = 0; i < 8; i++) {
